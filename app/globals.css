@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg: #161618;
+  --color-surface: #1c1d20;
+  --color-hover: #404249;
+  --color-text: #f2f3f5;
+  --color-muted: #949ba4;
+  --color-accent: #5865f2;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+main > div > section > div.overflow-y-auto {
+  min-height: 0;
+}
+
+main > div > section > form {
+  position: sticky;
+  bottom: 0;
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
 }
